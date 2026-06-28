@@ -16,7 +16,9 @@ import {
   MapPin,
   Calendar,
   ChevronRight,
+  X,
 } from "lucide-react";
+import HuntPlanner from "./components/HuntPlanner";
 
 /* ─── SCROLL REVEAL HOOK ─────────────────────────────────────── */
 function useReveal() {
@@ -164,89 +166,10 @@ const ADVANTAGES = [
   },
 ];
 
-/* ─── CONTACT FORM ───────────────────────────────────────────── */
-function ContactForm() {
-  const [form, setForm] = useState({
-    name: "", email: "", phone: "", hunt: "", dates: "", message: "",
-  });
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
-
-  if (submitted) {
-    return (
-      <div className="text-center py-16 space-y-4 reveal visible">
-        <div className="w-16 h-16 border border-[#c9a84c] rounded-full flex items-center justify-center mx-auto mb-6">
-          <Check className="w-7 h-7 text-[#c9a84c]" />
-        </div>
-        <p className="section-label mb-2">Inquiry Received</p>
-        <h3 className="headline-md">We'll Be in Touch Shortly</h3>
-        <p className="body-text max-w-md mx-auto">
-          Jason McMillan personally reviews every expedition inquiry. Expect a response within 24 hours.
-        </p>
-      </div>
-    );
-  }
-
-  return (
-    <form onSubmit={handleSubmit} className="space-y-5">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-        <div>
-          <label className="block text-xs font-medium tracking-widest uppercase text-[#c9a84c] mb-2" htmlFor="contact-name">Full Name</label>
-          <input id="contact-name" className="luxury-input" placeholder="Your name" required
-            value={form.name} onChange={e => setForm({...form, name: e.target.value})} />
-        </div>
-        <div>
-          <label className="block text-xs font-medium tracking-widest uppercase text-[#c9a84c] mb-2" htmlFor="contact-email">Email Address</label>
-          <input id="contact-email" type="email" className="luxury-input" placeholder="your@email.com" required
-            value={form.email} onChange={e => setForm({...form, email: e.target.value})} />
-        </div>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-        <div>
-          <label className="block text-xs font-medium tracking-widest uppercase text-[#c9a84c] mb-2" htmlFor="contact-phone">Phone Number</label>
-          <input id="contact-phone" type="tel" className="luxury-input" placeholder="(970) 000-0000"
-            value={form.phone} onChange={e => setForm({...form, phone: e.target.value})} />
-        </div>
-        <div>
-          <label className="block text-xs font-medium tracking-widest uppercase text-[#c9a84c] mb-2" htmlFor="contact-hunt">Hunt Interest</label>
-          <select id="contact-hunt" className="luxury-select" required
-            value={form.hunt} onChange={e => setForm({...form, hunt: e.target.value})}>
-            <option value="">Select expedition type</option>
-            <option value="elk">Unit 40 Trophy Elk & Deer</option>
-            <option value="sheep">Desert Bighorn Sheep (S56/S62)</option>
-            <option value="river">Gunnison River Float Hunt</option>
-            <option value="consult">General Consultation</option>
-          </select>
-        </div>
-      </div>
-      <div>
-        <label className="block text-xs font-medium tracking-widest uppercase text-[#c9a84c] mb-2" htmlFor="contact-dates">Preferred Season / Dates</label>
-        <input id="contact-dates" className="luxury-input" placeholder="e.g. September 2025, Rifle Season 3rd"
-          value={form.dates} onChange={e => setForm({...form, dates: e.target.value})} />
-      </div>
-      <div>
-        <label className="block text-xs font-medium tracking-widest uppercase text-[#c9a84c] mb-2" htmlFor="contact-message">Expedition Goals & Questions</label>
-        <textarea id="contact-message" className="luxury-input" rows={4} placeholder="Tell us about your target animal, experience level, and what this expedition means to you..."
-          value={form.message} onChange={e => setForm({...form, message: e.target.value})} style={{resize: "vertical"}} />
-      </div>
-      <button type="submit" className="btn-gold w-full justify-center">
-        <span>Submit Expedition Inquiry</span>
-        <ArrowRight className="w-4 h-4" />
-      </button>
-      <p className="text-center text-xs text-[rgba(244,240,232,0.6)] tracking-wider">
-        Jason McMillan personally responds to every inquiry within 24 hours.
-      </p>
-    </form>
-  );
-}
-
 /* ─── MAIN APP ───────────────────────────────────────────────── */
 export default function App() {
   const [activeHuntId, setActiveHuntId] = useState("elk");
+  const [isPlannerOpen, setIsPlannerOpen] = useState(false);
   const scrolled = useNavScroll();
   const activeHunt = HUNTS.find((h) => h.id === activeHuntId)!;
 
@@ -288,9 +211,9 @@ export default function App() {
               </a>
             );
           })}
-          <a href="#contact" className="btn-gold" style={{ padding: "12px 28px" }}>
+          <button onClick={() => setIsPlannerOpen(true)} className="btn-gold" style={{ padding: "12px 28px", cursor: "pointer" }}>
             <span>Inquire</span>
-          </a>
+          </button>
         </div>
       </nav>
 
@@ -353,10 +276,10 @@ export default function App() {
             </div>
 
             <div style={{ display: "flex", gap: "16px", flexWrap: "wrap", animation: "fadeUp 1.4s 1.2s cubic-bezier(0.16,1,0.3,1) both" }}>
-              <a href="#contact" className="btn-gold">
+              <button onClick={() => setIsPlannerOpen(true)} className="btn-gold" style={{ cursor: "pointer" }}>
                 <span>Request Expedition Brief</span>
                 <ArrowRight className="w-4 h-4" />
-              </a>
+              </button>
               <a href="tel:9705550190" className="btn-outline">
                 <Phone className="w-3.5 h-3.5" />
                 <span>Call Jason: (970) 555-0190</span>
@@ -428,10 +351,10 @@ export default function App() {
             <p className="body-text reveal reveal-delay-2" style={{ marginBottom: "40px", maxWidth: "420px" }}>
               Standard outfitting depends on luck. GuideWest leverages exclusive geography, proprietary licenses, and proven metrics to deliver what others only promise.
             </p>
-            <a href="#contact" className="btn-gold reveal reveal-delay-3">
+            <button onClick={() => setIsPlannerOpen(true)} className="btn-gold reveal reveal-delay-3" style={{ cursor: "pointer" }}>
               <span>Book Your Expedition</span>
               <ArrowRight className="w-4 h-4" />
-            </a>
+            </button>
           </div>
 
           <div style={{ display: "grid", gap: "16px" }}>
@@ -577,10 +500,10 @@ export default function App() {
               </ul>
             </div>
 
-            <a href="#contact" className="btn-gold" style={{ width: "100%", justifyContent: "center" }}>
+            <button onClick={() => setIsPlannerOpen(true)} className="btn-gold" style={{ width: "100%", justifyContent: "center", cursor: "pointer" }}>
               <span>Reserve Your Season Slot</span>
               <ArrowRight className="w-4 h-4" />
-            </a>
+            </button>
           </div>
         </div>
       </section>
@@ -667,10 +590,10 @@ export default function App() {
             </div>
 
             <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }} className="reveal reveal-delay-5">
-              <a href="#contact" className="btn-gold">
+              <button onClick={() => setIsPlannerOpen(true)} className="btn-gold" style={{ cursor: "pointer" }}>
                 <span>Plan Your Expedition</span>
                 <ArrowRight className="w-4 h-4" />
-              </a>
+              </button>
               <a href="tel:9705550190" className="btn-outline">
                 <Phone className="w-3.5 h-3.5" />
                 <span>Call Direct</span>
@@ -759,11 +682,8 @@ export default function App() {
           </div>
 
           {/* Right: Form */}
-          <div className="glass-card reveal reveal-delay-2" style={{ padding: "48px" }}>
-            <p style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "1.3rem", fontStyle: "italic", color: "rgba(244,240,232,0.85)", marginBottom: "36px", lineHeight: 1.5 }}>
-              "Jason McMillan personally reviews every expedition inquiry."
-            </p>
-            <ContactForm />
+          <div className="reveal reveal-delay-2">
+            <HuntPlanner />
           </div>
         </div>
       </section>
@@ -831,12 +751,96 @@ export default function App() {
             <p style={{ fontFamily: "Inter, sans-serif", fontSize: "11px", color: "rgba(244,240,232,0.5)" }}>
               © {new Date().getFullYear()} GuideWest Outfitters. All rights reserved. Formerly 3Outfitters West. Same veteran guides, elevated access.
             </p>
-            <p style={{ fontFamily: "Cinzel, serif", fontSize: "8px", letterSpacing: "0.25em", color: "rgba(201,168,76,0.4)", textTransform: "uppercase" }}>
+            <p style={{ fontFamily: "Cinzel, serif", fontSize: "8px", letterSpacing: "0.25em", color: "rgba(201, 168, 76, 0.4)", textTransform: "uppercase" }}>
               Colorado's Premier Remote Trophy Outfitter
             </p>
           </div>
         </div>
       </footer>
+
+      {/* ── POPUP WIZARD MODAL ────────────────────────────────────── */}
+      {isPlannerOpen && (
+        <div style={{
+          position: "fixed",
+          inset: 0,
+          zIndex: 1000,
+          background: "rgba(10, 10, 11, 0.85)",
+          backdropFilter: "blur(12px)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          padding: "24px",
+        }}>
+          <div style={{
+            position: "relative",
+            width: "100%",
+            maxWidth: "750px",
+            maxHeight: "90vh",
+            overflowY: "auto",
+            background: "#111114",
+            border: "1px solid rgba(201, 168, 76, 0.3)",
+            borderRadius: "2px",
+            boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.6)",
+          }} className="scroll-mt-24">
+            <button 
+              onClick={() => setIsPlannerOpen(false)}
+              style={{
+                position: "absolute",
+                top: "20px",
+                right: "20px",
+                background: "transparent",
+                border: "none",
+                color: "rgba(244, 240, 232, 0.6)",
+                cursor: "pointer",
+                zIndex: 1010,
+                transition: "color 0.2s ease"
+              }}
+              onMouseEnter={e => e.currentTarget.style.color = "#c9a84c"}
+              onMouseLeave={e => e.currentTarget.style.color = "rgba(244, 240, 232, 0.6)"}
+              aria-label="Close Inquiry Modal"
+            >
+              <X className="w-6 h-6" />
+            </button>
+            <HuntPlanner onSubmitInquiry={() => {
+              // we keep it open so they see their generated proposal letter!
+            }} />
+          </div>
+        </div>
+      )}
+
+      {/* ── MOBILE STICKY CTA BAR ────────────────────────────────── */}
+      <div className="mobile-sticky-cta" style={{
+        position: "fixed",
+        bottom: 0,
+        left: 0,
+        right: 0,
+        zIndex: 90,
+        background: "rgba(10, 10, 11, 0.95)",
+        backdropFilter: "blur(12px)",
+        borderTop: "1px solid rgba(201, 168, 76, 0.25)",
+        padding: "16px 24px",
+        display: "none", // overridden in CSS media query
+        justifyContent: "space-between",
+        alignItems: "center",
+        boxShadow: "0 -10px 30px rgba(0, 0, 0, 0.5)"
+      }}>
+        <div style={{ textAlign: "left" }}>
+          <div style={{ fontFamily: "Cinzel, serif", fontSize: "11px", color: "#e0c278", letterSpacing: "0.15em", textTransform: "uppercase", fontWeight: 600 }}>
+            2026/2027 Seasons
+          </div>
+          <div style={{ fontFamily: "Inter, sans-serif", fontSize: "10px", color: "rgba(244, 240, 232, 0.65)" }}>
+            Acres & Vouchers Limited
+          </div>
+        </div>
+        <button 
+          onClick={() => setIsPlannerOpen(true)}
+          className="btn-gold"
+          style={{ padding: "12px 24px", fontSize: "10px", margin: 0, cursor: "pointer" }}
+        >
+          <span>Request Brief</span>
+          <ArrowRight className="w-3.5 h-3.5" />
+        </button>
+      </div>
 
     </div>
   );

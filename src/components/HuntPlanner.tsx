@@ -96,41 +96,41 @@ DOLA License #3539 | CPW River License #659`;
   };
 
   return (
-    <div className="bg-[#0e100e] border border-[#2a2d2a] p-8 rounded-sm text-neutral-200 shadow-2xl relative overflow-hidden max-w-3xl mx-auto scroll-mt-24" id="inquire-form-container">
+    <div className="bg-[#111114] border border-[rgba(201,168,76,0.18)] p-8 rounded-sm text-neutral-200 shadow-2xl relative overflow-hidden max-w-3xl mx-auto scroll-mt-24" id="inquire-form-container">
       {/* Decorative mountain graphic in background */}
       <div className="absolute right-0 top-0 opacity-[0.02] pointer-events-none select-none">
-        <Compass className="w-[400px] h-[400px] text-[#c5a059]" />
+        <Compass className="w-[400px] h-[400px] text-[#c9a84c]" />
       </div>
 
       <div className="relative z-10 space-y-6">
         <div className="text-center space-y-2">
-          <span className="font-mono text-xs text-[#c5a059] tracking-widest uppercase flex items-center justify-center gap-1.5 font-bold">
-            <Sparkles className="w-4 h-4 text-[#c5a059]" />
+          <span className="font-mono text-xs text-[#c9a84c] tracking-widest uppercase flex items-center justify-center gap-1.5 font-bold">
+            <Sparkles className="w-4 h-4 text-[#c9a84c]" />
             Bespoke Expedition Brief
           </span>
           <h3 className="font-display text-2xl lg:text-3xl text-white tracking-wide uppercase font-bold">
             Inquire About Seasonal Availability
           </h3>
-          <p className="font-serif text-sm text-[#b0b0a5] max-w-md mx-auto font-light">
+          <p className="font-serif text-sm text-[#f4f0e8] max-w-md mx-auto font-light">
             Design your custom parameters to generate an instant tactical hunt proposal from Jason McMillan.
           </p>
         </div>
 
         {/* Form Steps */}
         {step < 4 && (
-          <div className="flex items-center justify-between border-b border-[#2a2d2a] pb-4 text-xs font-mono">
-            <span className={step >= 1 ? "text-[#c5a059] font-bold" : "text-[#5a5a50]"}>1. SPECIES</span>
-            <span className="text-[#5a5a50]">→</span>
-            <span className={step >= 2 ? "text-[#c5a059] font-bold" : "text-[#5a5a50]"}>2. ACCESS & TAG</span>
-            <span className="text-[#5a5a50]">→</span>
-            <span className={step >= 3 ? "text-[#c5a059] font-bold" : "text-[#5a5a50]"}>3. CLIENT BIO</span>
+          <div className="flex items-center justify-between border-b border-[rgba(201,168,76,0.18)] pb-4 text-xs font-mono">
+            <span className={step >= 1 ? "text-[#c9a84c] font-bold" : "text-[#8a8880]"}>1. SPECIES</span>
+            <span className="text-[#8a8880]">→</span>
+            <span className={step >= 2 ? "text-[#c9a84c] font-bold" : "text-[#8a8880]"}>2. ACCESS & TAG</span>
+            <span className="text-[#8a8880]">→</span>
+            <span className={step >= 3 ? "text-[#c9a84c] font-bold" : "text-[#8a8880]"}>3. CLIENT BIO</span>
           </div>
         )}
 
         {/* Step 1: Species & Class */}
         {step === 1 && (
           <div className="space-y-4 animate-fadeIn">
-            <label className="block text-[10px] font-mono uppercase tracking-widest text-[#8a8a7e]">
+            <label className="block text-[10px] font-mono uppercase tracking-widest text-[#8a8880]">
               Select Your Target Trophy Species:
             </label>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -139,18 +139,18 @@ DOLA License #3539 | CPW River License #659`;
                 onClick={() => handleChange("species", "Elk")}
                 className={`p-5 rounded-sm border text-left transition-all ${
                   formData.species === "Elk"
-                    ? "border-[#c5a059] bg-[#161a16]"
-                    : "border-[#2a2d2a] bg-transparent hover:border-[#c5a059]"
+                    ? "border-[#c9a84c] bg-[rgba(201,168,76,0.08)]"
+                    : "border-[rgba(201,168,76,0.18)] bg-transparent hover:border-[#c9a84c]"
                 }`}
               >
                 <div className="flex justify-between items-center mb-2">
                   <span className="text-xs font-bold uppercase tracking-wider text-white">Trophy Elk</span>
-                  {formData.species === "Elk" && <Check className="w-4 h-4 text-[#c5a059]" />}
+                  {formData.species === "Elk" && <Check className="w-4 h-4 text-[#c9a84c]" />}
                 </div>
-                <p className="text-xs text-[#8a8a7e] font-serif leading-relaxed mb-3 font-light">
+                <p className="text-xs text-[#8a8880] font-serif leading-relaxed mb-3 font-light">
                   Focusing on heavy mass Bulls in the high canyon corridors of GMU 40.
                 </p>
-                <span className="text-[10px] font-mono text-[#c5a059] bg-[#161a16] border border-[#2a2d2a] px-2 py-0.5 rounded-sm">
+                <span className="text-[10px] font-mono text-[#c9a84c] bg-[rgba(201,168,76,0.08)] border border-[rgba(201,168,76,0.18)] px-2 py-0.5 rounded-sm">
                   85% Success
                 </span>
               </button>
@@ -160,18 +160,18 @@ DOLA License #3539 | CPW River License #659`;
                 onClick={() => handleChange("species", "Mule Deer")}
                 className={`p-5 rounded-sm border text-left transition-all ${
                   formData.species === "Mule Deer"
-                    ? "border-[#c5a059] bg-[#161a16]"
-                    : "border-[#2a2d2a] bg-transparent hover:border-[#c5a059]"
+                    ? "border-[#c9a84c] bg-[rgba(201,168,76,0.08)]"
+                    : "border-[rgba(201,168,76,0.18)] bg-transparent hover:border-[#c9a84c]"
                 }`}
               >
                 <div className="flex justify-between items-center mb-2">
                   <span className="text-xs font-bold uppercase tracking-wider text-white">Heavy Mule Deer</span>
-                  {formData.species === "Mule Deer" && <Check className="w-4 h-4 text-[#c5a059]" />}
+                  {formData.species === "Mule Deer" && <Check className="w-4 h-4 text-[#c9a84c]" />}
                 </div>
-                <p className="text-xs text-[#8a8a7e] font-serif leading-relaxed mb-3 font-light">
+                <p className="text-xs text-[#8a8880] font-serif leading-relaxed mb-3 font-light">
                   Spotting wide mature bucks in Unit 40 high escarpments and river draws.
                 </p>
-                <span className="text-[10px] font-mono text-[#c5a059] bg-[#161a16] border border-[#2a2d2a] px-2 py-0.5 rounded-sm">
+                <span className="text-[10px] font-mono text-[#c9a84c] bg-[rgba(201,168,76,0.08)] border border-[rgba(201,168,76,0.18)] px-2 py-0.5 rounded-sm">
                   88% Success
                 </span>
               </button>
@@ -181,18 +181,18 @@ DOLA License #3539 | CPW River License #659`;
                 onClick={() => handleChange("species", "Sheep")}
                 className={`p-5 rounded-sm border text-left transition-all ${
                   formData.species === "Sheep"
-                    ? "border-[#c5a059] bg-[#161a16]"
-                    : "border-[#2a2d2a] bg-transparent hover:border-[#c5a059]"
+                    ? "border-[#c9a84c] bg-[rgba(201,168,76,0.08)]"
+                    : "border-[rgba(201,168,76,0.18)] bg-transparent hover:border-[#c9a84c]"
                 }`}
               >
                 <div className="flex justify-between items-center mb-2">
                   <span className="text-xs font-bold uppercase tracking-wider text-white">Desert Bighorn</span>
-                  {formData.species === "Sheep" && <Check className="w-4 h-4 text-[#c5a059]" />}
+                  {formData.species === "Sheep" && <Check className="w-4 h-4 text-[#c9a84c]" />}
                 </div>
-                <p className="text-xs text-[#8a8a7e] font-serif leading-relaxed mb-3 font-light">
+                <p className="text-xs text-[#8a8880] font-serif leading-relaxed mb-3 font-light">
                   S56 & S62 red canyonlands ram quest. Once-in-a-lifetime extreme pursuit.
                 </p>
-                <span className="text-[10px] font-mono text-[#c5a059] bg-[#161a16] border border-[#2a2d2a] px-2 py-0.5 rounded-sm">
+                <span className="text-[10px] font-mono text-[#c9a84c] bg-[rgba(201,168,76,0.08)] border border-[rgba(201,168,76,0.18)] px-2 py-0.5 rounded-sm">
                   100% Success
                 </span>
               </button>
@@ -200,8 +200,9 @@ DOLA License #3539 | CPW River License #659`;
 
             <div className="flex justify-end pt-4">
               <button
+                type="button"
                 onClick={handleNext}
-                className="bg-[#c5a059] text-[#0c0d0c] font-bold uppercase tracking-[0.2em] text-[11px] py-4 px-6 hover:bg-[#d4b57a] rounded-sm transition-all flex items-center gap-2"
+                className="bg-[#c9a84c] text-[#0a0a0b] font-bold uppercase tracking-[0.2em] text-[11px] py-4 px-6 hover:bg-[#e0c278] rounded-sm transition-all flex items-center gap-2 cursor-pointer"
                 id="btn-step-1-next"
               >
                 Proceed to Tag & Method
@@ -216,8 +217,8 @@ DOLA License #3539 | CPW River License #659`;
           <div className="space-y-6 animate-fadeIn">
             {/* Tag access status */}
             <div className="space-y-3">
-              <label className="text-[10px] font-mono uppercase tracking-widest text-[#8a8a7e] flex items-center gap-1.5">
-                <FileText className="w-4 h-4 text-[#c5a059]" />
+              <label className="text-[10px] font-mono uppercase tracking-widest text-[#8a8880] flex items-center gap-1.5">
+                <FileText className="w-4 h-4 text-[#c9a84c]" />
                 License Tag Status:
               </label>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -226,12 +227,12 @@ DOLA License #3539 | CPW River License #659`;
                   onClick={() => handleChange("tagStatus", "need-voucher")}
                   className={`p-4 rounded-sm border text-left transition-all ${
                     formData.tagStatus === "need-voucher"
-                      ? "border-[#c5a059] bg-[#161a16] text-white"
-                      : "border-[#2a2d2a] bg-transparent text-[#8a8a7e] hover:border-[#c5a059]"
+                      ? "border-[#c9a84c] bg-[rgba(201,168,76,0.08)] text-white"
+                      : "border-[rgba(201,168,76,0.18)] bg-transparent text-[#8a8880] hover:border-[#c9a84c]"
                   }`}
                 >
                   <p className="text-xs font-bold uppercase text-white mb-1">Need Landowner Voucher</p>
-                  <p className="text-[11px] leading-relaxed text-[#8a8a7e] font-serif font-light">Secure a guaranteed tag allocation bypassing drawing pools.</p>
+                  <p className="text-[11px] leading-relaxed text-[#8a8880] font-serif font-light">Secure a guaranteed tag allocation bypassing drawing pools.</p>
                 </button>
 
                 <button
@@ -239,12 +240,12 @@ DOLA License #3539 | CPW River License #659`;
                   onClick={() => handleChange("tagStatus", "already-drawn")}
                   className={`p-4 rounded-sm border text-left transition-all ${
                     formData.tagStatus === "already-drawn"
-                      ? "border-[#c5a059] bg-[#161a16] text-white"
-                      : "border-[#2a2d2a] bg-transparent text-[#8a8a7e] hover:border-[#c5a059]"
+                      ? "border-[#c9a84c] bg-[rgba(201,168,76,0.08)] text-white"
+                      : "border-[rgba(201,168,76,0.18)] bg-transparent text-[#8a8880] hover:border-[#c9a84c]"
                   }`}
                 >
                   <p className="text-xs font-bold uppercase text-white mb-1">Already Drew a Tag</p>
-                  <p className="text-[11px] leading-relaxed text-[#8a8a7e] font-serif font-light">I hold the valid Colorado license tag for this GMU.</p>
+                  <p className="text-[11px] leading-relaxed text-[#8a8880] font-serif font-light">I hold the valid Colorado license tag for this GMU.</p>
                 </button>
 
                 <button
@@ -252,20 +253,20 @@ DOLA License #3539 | CPW River License #659`;
                   onClick={() => handleChange("tagStatus", "assistance")}
                   className={`p-4 rounded-sm border text-left transition-all ${
                     formData.tagStatus === "assistance"
-                      ? "border-[#c5a059] bg-[#161a16] text-white"
-                      : "border-[#2a2d2a] bg-transparent text-[#8a8a7e] hover:border-[#c5a059]"
+                      ? "border-[#c9a84c] bg-[rgba(201,168,76,0.08)] text-white"
+                      : "border-[rgba(201,168,76,0.18)] bg-transparent text-[#8a8880] hover:border-[#c9a84c]"
                   }`}
                 >
                   <p className="text-xs font-bold uppercase text-white mb-1">Seeking Draw Advice</p>
-                  <p className="text-[11px] leading-relaxed text-[#8a8a7e] font-serif font-light">Need custom advice with application preference points.</p>
+                  <p className="text-[11px] leading-relaxed text-[#8a8880] font-serif font-light">Need custom advice with application preference points.</p>
                 </button>
               </div>
             </div>
 
             {/* Access method preference */}
             <div className="space-y-3">
-              <label className="text-[10px] font-mono uppercase tracking-widest text-[#8a8a7e] flex items-center gap-1.5">
-                <Compass className="w-4 h-4 text-[#c5a059]" />
+              <label className="text-[10px] font-mono uppercase tracking-widest text-[#8a8880] flex items-center gap-1.5">
+                <Compass className="w-4 h-4 text-[#c9a84c]" />
                 Preferred Access Vector:
               </label>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -274,12 +275,12 @@ DOLA License #3539 | CPW River License #659`;
                   onClick={() => handleChange("method", "jetboat")}
                   className={`p-4 rounded-sm border text-left transition-all ${
                     formData.method === "jetboat"
-                      ? "border-[#c5a059] bg-[#161a16] text-white"
-                      : "border-[#2a2d2a] bg-transparent text-[#8a8a7e] hover:border-[#c5a059]"
+                      ? "border-[#c9a84c] bg-[rgba(201,168,76,0.08)] text-white"
+                      : "border-[rgba(201,168,76,0.18)] bg-transparent text-[#8a8880] hover:border-[#c9a84c]"
                   }`}
                 >
                   <p className="text-xs font-bold uppercase text-white mb-1">Jetboat Canopy Drops</p>
-                  <p className="text-[11px] leading-relaxed text-[#8a8a7e] font-serif font-light">Use speed riverbeds to strike remote, roadless plateaus.</p>
+                  <p className="text-[11px] leading-relaxed text-[#8a8880] font-serif font-light">Use speed riverbeds to strike remote, roadless plateaus.</p>
                 </button>
 
                 <button
@@ -287,12 +288,12 @@ DOLA License #3539 | CPW River License #659`;
                   onClick={() => handleChange("method", "raft")}
                   className={`p-4 rounded-sm border text-left transition-all ${
                     formData.method === "raft"
-                      ? "border-[#c5a059] bg-[#161a16] text-white"
-                      : "border-[#2a2d2a] bg-transparent text-[#8a8a7e] hover:border-[#c5a059]"
+                      ? "border-[#c9a84c] bg-[rgba(201,168,76,0.08)] text-white"
+                      : "border-[rgba(201,168,76,0.18)] bg-transparent text-[#8a8880] hover:border-[#c9a84c]"
                   }`}
                 >
                   <p className="text-xs font-bold uppercase text-white mb-1">Wilderness Raft Float</p>
-                  <p className="text-[11px] leading-relaxed text-[#8a8a7e] font-serif font-light">River raft mobility with scenic riverbed wall-tent bases.</p>
+                  <p className="text-[11px] leading-relaxed text-[#8a8880] font-serif font-light">River raft mobility with scenic riverbed wall-tent bases.</p>
                 </button>
 
                 <button
@@ -300,27 +301,29 @@ DOLA License #3539 | CPW River License #659`;
                   onClick={() => handleChange("method", "horseback")}
                   className={`p-4 rounded-sm border text-left transition-all ${
                     formData.method === "horseback"
-                      ? "border-[#c5a059] bg-[#161a16] text-white"
-                      : "border-[#2a2d2a] bg-transparent text-[#8a8a7e] hover:border-[#c5a059]"
+                      ? "border-[#c9a84c] bg-[rgba(201,168,76,0.08)] text-white"
+                      : "border-[rgba(201,168,76,0.18)] bg-transparent text-[#8a8880] hover:border-[#c9a84c]"
                   }`}
                 >
                   <p className="text-xs font-bold uppercase text-white mb-1">Horseback / Foot Campaign</p>
-                  <p className="text-[11px] leading-relaxed text-[#8a8a7e] font-serif font-light">Traditional steep tracking and high canyon horseback trails.</p>
+                  <p className="text-[11px] leading-relaxed text-[#8a8880] font-serif font-light">Traditional steep tracking and high canyon horseback trails.</p>
                 </button>
               </div>
             </div>
 
             <div className="flex justify-between pt-4">
               <button
+                type="button"
                 onClick={handleBack}
-                className="border border-[#2a2d2a] text-[#8a8a7e] hover:text-white font-mono text-[10px] uppercase tracking-widest px-5 py-3 rounded-sm transition-all text-left"
+                className="border border-[rgba(201,168,76,0.18)] text-[#8a8880] hover:text-white font-mono text-[10px] uppercase tracking-widest px-5 py-3 rounded-sm transition-all text-left cursor-pointer"
                 id="btn-step-2-back"
               >
                 Back
               </button>
               <button
+                type="button"
                 onClick={handleNext}
-                className="bg-[#c5a059] text-[#0c0d0c] font-bold uppercase tracking-[0.2em] text-[11px] py-4 px-6 hover:bg-[#d4b57a] rounded-sm transition-all flex items-center gap-2"
+                className="bg-[#c9a84c] text-[#0a0a0b] font-bold uppercase tracking-[0.2em] text-[11px] py-4 px-6 hover:bg-[#e0c278] rounded-sm transition-all flex items-center gap-2 cursor-pointer"
                 id="btn-step-2-next"
               >
                 Proceed to Details
@@ -334,106 +337,108 @@ DOLA License #3539 | CPW River License #659`;
         {step === 3 && (
           <div className="space-y-6 animate-fadeIn">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="border-b border-[#2a2d2a] pb-2">
-                <label className="text-[9px] uppercase tracking-widest text-[#5a5a50] block font-mono">Full Name</label>
+              <div className="border-b border-[rgba(201,168,76,0.18)] pb-2">
+                <label className="text-[9px] uppercase tracking-widest text-[rgba(244,240,232,0.5)] block font-mono">Full Name</label>
                 <input
                   type="text"
                   placeholder="Hon. Robert Vance"
                   value={formData.fullname}
                   onChange={(e) => handleChange("fullname", e.target.value)}
-                  className="bg-transparent w-full text-sm outline-none pt-1.5 placeholder-[#3a3a30] text-[#e0e0d6] focus:text-white"
+                  className="bg-transparent w-full text-sm outline-none pt-1.5 placeholder-[rgba(244,240,232,0.3)] text-[#f4f0e8] focus:text-white"
                   required
                   id="inp-fullname"
                 />
               </div>
 
-              <div className="border-b border-[#2a2d2a] pb-2">
-                <label className="text-[9px] uppercase tracking-widest text-[#5a5a50] block font-mono">Direct Telephone</label>
+              <div className="border-b border-[rgba(201,168,76,0.18)] pb-2">
+                <label className="text-[9px] uppercase tracking-widest text-[rgba(244,240,232,0.5)] block font-mono">Direct Telephone</label>
                 <input
                   type="tel"
                   placeholder="(303) 555-0199"
                   value={formData.phone}
                   onChange={(e) => handleChange("phone", e.target.value)}
-                  className="bg-transparent w-full text-sm outline-none pt-1.5 placeholder-[#3a3a30] text-[#e0e0d6] focus:text-white"
+                  className="bg-transparent w-full text-sm outline-none pt-1.5 placeholder-[rgba(244,240,232,0.3)] text-[#f4f0e8] focus:text-white"
                   required
                   id="inp-phone"
                 />
               </div>
             </div>
 
-            <div className="border-b border-[#2a2d2a] pb-2">
-              <label className="text-[9px] uppercase tracking-widest text-[#5a5a50] block font-mono">Corporate Email Address</label>
+            <div className="border-b border-[rgba(201,168,76,0.18)] pb-2">
+              <label className="text-[9px] uppercase tracking-widest text-[rgba(244,240,232,0.5)] block font-mono">Email Address</label>
               <input
                 type="email"
                 placeholder="robert@vanceholdings.com"
                 value={formData.email}
                 onChange={(e) => handleChange("email", e.target.value)}
-                className="bg-transparent w-full text-sm outline-none pt-1.5 placeholder-[#3a3a30] text-[#e0e0d6] focus:text-white"
+                className="bg-transparent w-full text-sm outline-none pt-1.5 placeholder-[rgba(244,240,232,0.3)] text-[#f4f0e8] focus:text-white"
                 required
                 id="inp-email"
               />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="border-b border-[#2a2d2a] pb-2">
-                <label className="text-[9px] uppercase tracking-widest text-[#5a5a50] block font-mono flex items-center gap-1">
-                  <HeartPulse className="w-3.5 h-3.5 text-[#c5a059]" /> Physical Preparation Level
+              <div className="border-b border-[rgba(201,168,76,0.18)] pb-2">
+                <label className="text-[9px] uppercase tracking-widest text-[rgba(244,240,232,0.5)] block font-mono flex items-center gap-1">
+                  <HeartPulse className="w-3.5 h-3.5 text-[#c9a84c]" /> Physical Preparation Level
                 </label>
                 <select
                   value={formData.fitness}
                   onChange={(e) => handleChange("fitness", e.target.value)}
-                  className="bg-[#0e100e] text-[#a1a196] w-full text-sm outline-none pt-1.5 appearance-none border-0 cursor-pointer"
+                  className="bg-[#111114] text-[rgba(244,240,232,0.85)] w-full text-sm outline-none pt-1.5 appearance-none border-0 cursor-pointer"
                   id="sel-fitness"
                 >
-                  <option value="elite" className="bleed bg-[#0c0d0c]">Elite Gym / High Mountain Active (GMU 40 Canyons)</option>
-                  <option value="moderate" className="bg-[#0c0d0c]">Moderate Backcountry Hiker (Stamina Spotting)</option>
-                  <option value="basic" className="bg-[#0c0d0c]">Low Strain / Prefer Boat & Wall-Tents (Luxury Level)</option>
+                  <option value="elite" className="bg-[#0a0a0b]">Elite Gym / High Mountain Active (GMU 40 Canyons)</option>
+                  <option value="moderate" className="bg-[#0a0a0b]">Moderate Backcountry Hiker (Stamina Spotting)</option>
+                  <option value="basic" className="bg-[#0a0a0b]">Low Strain / Prefer Boat & Wall-Tents (Luxury Level)</option>
                 </select>
               </div>
 
-              <div className="border-b border-[#2a2d2a] pb-2">
-                <label className="text-[9px] uppercase tracking-widest text-[#5a5a50] block font-mono flex items-center gap-1">
-                  <Star className="w-3.5 h-3.5 text-[#c5a059]" /> Budget Allocation Segment
+              <div className="border-b border-[rgba(201,168,76,0.18)] pb-2">
+                <label className="text-[9px] uppercase tracking-widest text-[rgba(244,240,232,0.5)] block font-mono flex items-center gap-1">
+                  <Star className="w-3.5 h-3.5 text-[#c9a84c]" /> Budget Allocation Segment
                 </label>
                 <select
                   value={formData.budget}
                   onChange={(e) => handleChange("budget", e.target.value)}
-                  className="bg-[#0e100e] text-[#a1a196] w-full text-sm outline-none pt-1.5 appearance-none border-0 cursor-pointer"
+                  className="bg-[#111114] text-[rgba(244,240,232,0.85)] w-full text-sm outline-none pt-1.5 appearance-none border-0 cursor-pointer"
                   id="sel-budget"
                 >
-                  <option value="premium" className="bg-[#0c0d0c]">Full Luxury Guided Outfit (1:1 Service, Private Camp)</option>
-                  <option value="elite_packet" className="bg-[#0c0d0c]">Landowner Voucher + Guide Complete Package (All Inclusive)</option>
-                  <option value="corporate" className="bg-[#0c0d0c]">Exclusive Corporate Multi-Hunter Block (3+ hunters)</option>
+                  <option value="premium" className="bg-[#0a0a0b]">Full Luxury Guided Outfit (1:1 Service, Private Camp)</option>
+                  <option value="elite_packet" className="bg-[#0a0a0b]">Landowner Voucher + Guide Complete Package (All Inclusive)</option>
+                  <option value="corporate" className="bg-[#0a0a0b]">Exclusive Corporate Multi-Hunter Block (3+ hunters)</option>
                 </select>
               </div>
             </div>
 
-            <div className="border-b border-[#2a2d2a] pb-2">
-              <label className="text-[9px] uppercase tracking-widest text-[#5a5a50] block font-mono">Additional Requests/Special Gear/Physical Accommodation</label>
+            <div className="border-b border-[rgba(201,168,76,0.18)] pb-2">
+              <label className="text-[9px] uppercase tracking-widest text-[rgba(244,240,232,0.5)] block font-mono">Additional Requests / Special Accommodation</label>
               <textarea
-                placeholder="Please note dietary preferences, special physical parameters, or specific sheep units preference here..."
+                placeholder="Please note preferred dates, dietary requirements, special physical parameters, or specific GMU preferences here..."
                 value={formData.notes}
                 onChange={(e) => handleChange("notes", e.target.value)}
-                className="bg-transparent w-full text-sm outline-none pt-1.5 placeholder-[#3a3a30] text-[#e0e0d6] focus:text-white h-16 resize-none"
+                className="bg-transparent w-full text-sm outline-none pt-1.5 placeholder-[rgba(244,240,232,0.3)] text-[#f4f0e8] focus:text-white h-16 resize-none"
                 id="txt-notes"
               />
             </div>
 
             <div className="flex justify-between pt-4">
               <button
+                type="button"
                 onClick={handleBack}
-                className="border border-[#2a2d2a] text-[#8a8a7e] hover:text-white font-mono text-[10px] uppercase tracking-widest px-5 py-3 rounded-sm transition-all text-left"
+                className="border border-[rgba(201,168,76,0.18)] text-[#8a8880] hover:text-white font-mono text-[10px] uppercase tracking-widest px-5 py-3 rounded-sm transition-all text-left cursor-pointer"
                 id="btn-step-3-back"
               >
                 Back
               </button>
               <button
+                type="button"
                 onClick={generateDynamicProposal}
-                className="bg-[#c5a059] text-[#0c0d0c] font-bold uppercase tracking-[0.2em] text-[11px] py-4 px-8 hover:bg-[#d4b57a] rounded-sm transition-all flex items-center gap-2"
+                className="bg-[#c9a84c] text-[#0a0a0b] font-bold uppercase tracking-[0.2em] text-[11px] py-4 px-8 hover:bg-[#e0c278] rounded-sm transition-all flex items-center gap-2 cursor-pointer"
                 id="btn-step-3-submit"
               >
                 {isLoading ? "Generating Custom Brief..." : "Submit Inquiry & Generate Proposal"}
-                <Star className="w-4 h-4 text-[#0c0d0c]" />
+                <Star className="w-4 h-4 text-[#0a0a0b]" />
               </button>
             </div>
           </div>
@@ -442,51 +447,52 @@ DOLA License #3539 | CPW River License #659`;
         {/* Dynamic Custom Proposal Output */}
         {step === 4 && proposal && (
           <div className="space-y-6 animate-fadeIn">
-            <div className="bg-[#090a09] rounded-sm p-6 lg:p-8 text-[#e0e0d6] font-serif border border-[#2a2d2a] relative shadow-lg">
-              <div className="absolute right-4 top-4 text-[#8a8a7e] tracking-widest font-mono text-[9px] uppercase pointer-events-none select-none border border-[#2a2d2a] px-2 py-0.5 rounded-sm bg-[#0e100e]">
+            <div className="bg-[#0a0a0b] rounded-sm p-6 lg:p-8 text-[#f4f0e8] font-serif border border-[rgba(201,168,76,0.18)] relative shadow-lg">
+              <div className="absolute right-4 top-4 text-[#8a8880] tracking-widest font-mono text-[9px] uppercase pointer-events-none select-none border border-[rgba(201,168,76,0.18)] px-2 py-0.5 rounded-sm bg-[#111114]">
                 Strictly Confidential Briefing
               </div>
               
               {/* Letterhead */}
-              <div className="text-center border-b border-[#2a2d2a] pb-4 mb-6">
-                <p className="font-display text-xl uppercase tracking-widest text-[#c5a059] font-bold">GUIDEWEST OUTFITTERS</p>
-                <p className="font-mono text-[8px] uppercase text-[#8a8a7e] tracking-widest mt-1">
+              <div className="text-center border-b border-[rgba(201,168,76,0.18)] pb-4 mb-6">
+                <p className="font-display text-xl uppercase tracking-widest text-[#c9a84c] font-bold">GUIDEWEST OUTFITTERS</p>
+                <p className="font-mono text-[8px] uppercase text-[#8a8880] tracking-widest mt-1">
                   Colorado Wilderness Campaigns | DOLA Lic #3539 | CPW River Outfitters Lic #659
                 </p>
               </div>
 
               {/* Body */}
-              <pre className="font-serif text-sm leading-relaxed whitespace-pre-wrap text-[#e0e0d6] text-left font-light select-text selection:bg-[#c5a059] selection:text-[#0c0d0c]">
+              <pre className="font-serif text-sm leading-relaxed whitespace-pre-wrap text-[#f4f0e8] text-left font-light select-text selection:bg-[#c9a84c] selection:text-[#0a0a0b]">
                 {proposal}
               </pre>
 
               {/* Handover notification stamp */}
-              <div className="mt-8 border-t border-[#2a2d2a] pt-4 flex flex-col md:flex-row items-center justify-between text-[#8a8a7e] text-xs font-mono">
+              <div className="mt-8 border-t border-[rgba(201,168,76,0.18)] pt-4 flex flex-col md:flex-row items-center justify-between text-[#8a8880] text-xs font-mono">
                 <span>CAMP SENT: {new Date().toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })}</span>
-                <span className="text-[#c5a059] uppercase tracking-widest text-[9px] font-bold">★ Master Campaign Validated ★</span>
+                <span className="text-[#c9a84c] uppercase tracking-widest text-[9px] font-bold">★ Master Campaign Validated ★</span>
               </div>
             </div>
 
             {/* Re-plan Action */}
-            <div className="flex flex-col md:flex-row gap-4 items-center justify-between bg-[#0e100e] p-4 border border-[#2a2d2a] rounded-sm">
+            <div className="flex flex-col md:flex-row gap-4 items-center justify-between bg-[#111114] p-4 border border-[rgba(201,168,76,0.18)] rounded-sm">
               <div className="text-left font-sans">
-                <p className="text-xs font-mono text-[#c5a059] font-bold tracking-widest uppercase">Want to adjust parameters?</p>
-                <p className="text-[11px] text-[#8a8a7e] mt-0.5">Change preferences, game-types, or health indicators immediately.</p>
+                <p className="text-xs font-mono text-[#c9a84c] font-bold tracking-widest uppercase">Want to adjust parameters?</p>
+                <p className="text-[11px] text-[#8a8880] mt-0.5">Change preferences, game-types, or health indicators immediately.</p>
               </div>
               <div className="flex gap-2">
                 <button
+                  type="button"
                   onClick={() => {
                     setStep(1);
                     setProposal(null);
                   }}
-                  className="border border-[#2a2d2a] hover:border-[#c5a059] text-[#8a8a7e] hover:text-white font-mono text-[10px] uppercase tracking-widest px-4 py-2.5 rounded-sm transition-all"
+                  className="border border-[rgba(201,168,76,0.18)] hover:border-[#c9a84c] text-[#8a8880] hover:text-white font-mono text-[10px] uppercase tracking-widest px-4 py-2.5 rounded-sm transition-all cursor-pointer"
                   id="btn-replan"
                 >
                   Edit Brief Options
                 </button>
                 <a
                   href="tel:9705550190"
-                  className="bg-[#c5a059] hover:bg-[#d4b57a] text-[#0c0d0c] font-bold uppercase tracking-[0.2em] text-[10px] px-4 py-2.5 rounded-sm transition-all flex items-center gap-1.5"
+                  className="bg-[#c9a84c] hover:bg-[#e0c278] text-[#0a0a0b] font-bold uppercase tracking-[0.2em] text-[10px] px-4 py-2.5 rounded-sm transition-all flex items-center gap-1.5 cursor-pointer"
                 >
                   <Phone className="w-3.5 h-3.5" /> Direct Connect
                 </a>
@@ -496,9 +502,9 @@ DOLA License #3539 | CPW River License #659`;
         )}
 
         {/* Disclaimer / CPW details */}
-        <div className="flex items-start gap-2 bg-[#090a09] p-4 rounded-sm border border-[#2a2d2a] mt-4 text-left">
-          <AlertCircle className="w-4 h-4 text-[#c5a059] shrink-0 mt-0.5" />
-          <div className="text-[10px] text-[#8a8a7e] font-sans leading-relaxed">
+        <div className="flex items-start gap-2 bg-[#0a0a0b] p-4 rounded-sm border border-[rgba(201,168,76,0.18)] mt-4 text-left">
+          <AlertCircle className="w-4 h-4 text-[#c9a84c] shrink-0 mt-0.5" />
+          <div className="text-[10px] text-[#8a8880] font-sans leading-relaxed">
             <span className="font-semibold text-white">Exclusive Client Guarantee:</span> GuideWest Outfitters holds direct USFS permits, BLM Special Use Agreements, and strict commercial river-outfitting rights. Licensing coordinates verified directly with the Colorado Parks & Wildlife Office. Submission of this form registers your interest in high-priority booking channels and places you in custom spotter queues.
           </div>
         </div>

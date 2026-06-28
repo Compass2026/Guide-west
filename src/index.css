@@ -538,5 +538,11 @@ body {
   .hero-content {
     padding: 0 20px;
   }
+  .mobile-sticky-cta {
+    display: flex !important;
+  }
+  body {
+    padding-bottom: 74px; /* offset for sticky cta bar */
+  }
 }
 
