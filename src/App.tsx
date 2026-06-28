@@ -389,8 +389,8 @@ export default function App() {
 
       {/* ── STAT BAR ───────────────────────────────────────────── */}
       <div className="stat-bar">
-        <div style={{ maxWidth: "1400px", margin: "0 auto", padding: "20px 48px" }}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "16px" }}>
+        <div className="ticker-wrap">
+          <div className="ticker-track">
             {[
               "CPW Licensed River Outfitter #659",
               "Colorado DOLA License #3539",
@@ -398,7 +398,18 @@ export default function App() {
               "Grand Mesa · Uncompahgre · Gunnison Nat'l Forests",
               "24 Years Guiding Trophy Hunters",
             ].map((item, i) => (
-              <span key={i} style={{ fontFamily: "Cinzel, serif", fontSize: "9px", letterSpacing: "0.22em", color: "rgba(201,168,76,0.55)", textTransform: "uppercase" }}>
+              <span key={`a-${i}`} className="ticker-item">
+                {item}
+              </span>
+            ))}
+            {[
+              "CPW Licensed River Outfitter #659",
+              "Colorado DOLA License #3539",
+              "USFS & BLM Special Use Permits",
+              "Grand Mesa · Uncompahgre · Gunnison Nat'l Forests",
+              "24 Years Guiding Trophy Hunters",
+            ].map((item, i) => (
+              <span key={`b-${i}`} className="ticker-item">
                 {item}
               </span>
             ))}
