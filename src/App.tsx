@@ -186,9 +186,20 @@ export default function App() {
               width: "36px", height: "36px",
               border: "1px solid rgba(201,168,76,0.5)",
               display: "flex", alignItems: "center", justifyContent: "center",
-              background: "rgba(201,168,76,0.08)"
+              background: "rgba(201,168,76,0.08)",
+              overflow: "hidden"
             }}>
-              <span style={{ fontFamily: "Cinzel, serif", fontSize: "16px", color: "#c9a84c", fontWeight: 600 }}>G</span>
+              <img 
+                src="/photos/GuideWest Outfitters.webp" 
+                alt="GuideWest Outfitters Icon" 
+                style={{ 
+                  width: "30px", 
+                  height: "30px", 
+                  objectFit: "cover",
+                  objectPosition: "center top",
+                  filter: "invert(1) sepia(0.45) saturate(2.5) brightness(1.25)",
+                }} 
+              />
             </div>
             <div>
               <div style={{ fontFamily: "Cinzel, serif", fontSize: "13px", letterSpacing: "0.22em", color: "#f4f0e8", fontWeight: 500 }}>
@@ -694,12 +705,16 @@ export default function App() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 mb-12">
             {/* Brand */}
             <div>
-              <div style={{ fontFamily: "Cinzel, serif", fontSize: "16px", letterSpacing: "0.2em", color: "#c9a84c", marginBottom: "8px" }}>
-                GUIDEWEST
-              </div>
-              <div style={{ fontFamily: "Inter, sans-serif", fontSize: "10px", fontWeight: "500", letterSpacing: "0.25em", color: "rgba(244,240,232,0.55)", textTransform: "uppercase", marginBottom: "20px" }}>
-                Colorado Trophy Expeditions
-              </div>
+              <img 
+                src="/photos/GuideWest Outfitters.webp" 
+                alt="GuideWest Outfitters Logo" 
+                style={{ 
+                  width: "125px", 
+                  height: "auto", 
+                  marginBottom: "16px",
+                  filter: "invert(1) sepia(0.45) saturate(2.5) brightness(1.25)"
+                }} 
+              />
               <p className="body-text" style={{ fontSize: "12px" }}>
                 Colorado's premier remote big game outfitter. Roadless canyon access, proven results, veteran guidance.
               </p>
