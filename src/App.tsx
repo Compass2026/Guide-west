@@ -166,12 +166,71 @@ const ADVANTAGES = [
   },
 ];
 
+const TERRITORIES = [
+  {
+    id: "unit40",
+    name: "Unit 40",
+    subtitle: "The Trophy Sanctuary",
+    acres: "325,000+ Permitted BLM Acres",
+    area: "475,000 Total Acres (750 sq. miles)",
+    elevation: "4,560 ft – 9,700 ft",
+    species: "Mule Deer & Elk",
+    difficulty: "Mild to Moderate Terrain",
+    tagType: "Preference Points Required",
+    boundaries: {
+      north: "Colorado River",
+      east: "US-South Highway 50",
+      south: "Colorado 141 and Dolores River",
+      west: "Utah State Border"
+    },
+    description: "Located on the western slope of Colorado in Mesa County, southwest of Grand Junction, Unit 40 is globally renowned for massive Rocky Mountain bulls and heavy-framed Mule Deer. Standard access is heavily restricted by private land borders, but our permits allow us to operate in premium roadless corridors where game escapes heavy pressure."
+  },
+  {
+    id: "units41_421",
+    name: "Units 41 & 421",
+    subtitle: "Grand Mesa Slopes & Bottomlands",
+    acres: "869 Square Miles Combined",
+    area: "BLM, National Forest & Leased Ranches",
+    elevation: "5,400 ft – 11,236 ft",
+    species: "Elk & Mule Deer",
+    difficulty: "Moderate to Strenuous",
+    tagType: "OTC Available (2nd & 3rd Rifle Elk)",
+    boundaries: {
+      north: "Battlement Mesa Range",
+      east: "Grand Mesa National Forest",
+      south: "Gunnison River",
+      west: "Grand Junction Corridor"
+    },
+    description: "Situated on the north side of the Grand Mesa, just east of Grand Junction. A large river bottom runs through the units with mountains climbing several thousand feet off the valley floor. We lease key private properties to bypass landlocked BLM areas, providing access to massive elk populations with easier-to-draw licenses."
+  },
+  {
+    id: "units_s56_s62",
+    name: "Units S56 & S62",
+    subtitle: "Desert Bighorn Sheep Canyons",
+    acres: "Exclusive River-Corridor Permits",
+    area: "Colorado & Gunnison River Canyons",
+    elevation: "4,600 ft – 7,500 ft",
+    species: "Desert Bighorn Sheep",
+    difficulty: "High-Strenuous (Vertical Cliffs)",
+    tagType: "Once-in-a-Lifetime Draw",
+    boundaries: {
+      north: "Colorado River Canyons",
+      east: "Gunnison River Gorges",
+      south: "Red Rock Rim Escarpments",
+      west: "Utah Canyonlands Border"
+    },
+    description: "Managed strictly for Desert Bighorn Sheep hunting. We hold exclusive river outfitter permits that enable us to access these roadless, vertical canyon walls via commercial-grade jetboat and custom rafts. This unique tactical water entry has helped us maintain a flawless 100% success rate to date."
+  }
+];
+
 /* ─── MAIN APP ───────────────────────────────────────────────── */
 export default function App() {
   const [activeHuntId, setActiveHuntId] = useState("elk");
+  const [activeTerritoryId, setActiveTerritoryId] = useState("unit40");
   const [isPlannerOpen, setIsPlannerOpen] = useState(false);
   const scrolled = useNavScroll();
   const activeHunt = HUNTS.find((h) => h.id === activeHuntId)!;
+  const activeTerritory = TERRITORIES.find((t) => t.id === activeTerritoryId)!;
 
   useReveal();
 
@@ -180,42 +239,18 @@ export default function App() {
 
       {/* ── NAVIGATION ─────────────────────────────────────────── */}
       <nav className={`site-nav ${scrolled ? "scrolled" : ""}`} id="top-nav">
-        <a href="#hero" style={{ textDecoration: "none" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-            <div style={{
-              width: "36px", height: "36px",
-              border: "1px solid rgba(201,168,76,0.5)",
-              display: "flex", alignItems: "center", justifyContent: "center",
-              background: "rgba(201,168,76,0.08)",
-              overflow: "hidden"
-            }}>
-              <img 
-                src="/photos/GuideWest Outfitters.webp" 
-                alt="GuideWest Outfitters Icon" 
-                style={{ 
-                  width: "30px", 
-                  height: "30px", 
-                  objectFit: "cover",
-                  objectPosition: "center top",
-                  filter: "invert(1) sepia(0.45) saturate(2.5) brightness(1.25)",
-                }} 
-              />
-            </div>
-            <div>
-              <div style={{ fontFamily: "Cinzel, serif", fontSize: "13px", letterSpacing: "0.22em", color: "#f4f0e8", fontWeight: 500 }}>
-                GUIDEWEST
-              </div>
-              <div style={{ fontFamily: "Inter, sans-serif", fontSize: "9px", letterSpacing: "0.3em", color: "rgba(201,168,76,0.7)", textTransform: "uppercase" }}>
-                Colorado Trophy Expeditions
-              </div>
-            </div>
-          </div>
+        <a href="#hero" className="nav-logo-link">
+          <img 
+            src="/photos/GuideWest Outfitters.webp" 
+            alt="GuideWest Outfitters Logo" 
+            className="nav-logo-img"
+          />
         </a>
 
         <div className="nav-links" style={{ display: "flex", alignItems: "center", gap: "40px" }}>
-          {["The Advantage", "Expeditions", "The Outfitter", "Contact"].map((label) => {
-            const hrefs = ["#advantage", "#expeditions", "#outfitter", "#contact"];
-            const idx = ["The Advantage", "Expeditions", "The Outfitter", "Contact"].indexOf(label);
+          {["The Advantage", "Where We Hunt", "Expeditions", "The Outfitter", "Contact"].map((label) => {
+            const hrefs = ["#advantage", "#where-we-hunt", "#expeditions", "#outfitter", "#contact"];
+            const idx = ["The Advantage", "Where We Hunt", "Expeditions", "The Outfitter", "Contact"].indexOf(label);
             return (
               <a key={label} href={hrefs[idx]} className="nav-link">
                 {label}
@@ -291,9 +326,9 @@ export default function App() {
                 <span>Request Expedition Brief</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
-              <a href="tel:9705550190" className="btn-outline">
+              <a href="tel:9706231834" className="btn-outline">
                 <Phone className="w-3.5 h-3.5" />
-                <span>Call Jason: (970) 555-0190</span>
+                <span>Call Jason: (970) 623-1834</span>
               </a>
             </div>
 
@@ -396,6 +431,161 @@ export default function App() {
         </div>
       </section>
 
+      {/* ── WHERE WE HUNT ──────────────────────────────────────── */}
+      <section id="where-we-hunt" style={{ padding: "120px 48px", maxWidth: "1400px", margin: "0 auto" }}>
+        <div style={{ textAlign: "center", marginBottom: "60px" }}>
+          <p className="section-label reveal" style={{ marginBottom: "20px" }}>Operational Geography</p>
+          <h2 className="headline-lg reveal reveal-delay-1">
+            Western Colorado <span className="gold-italic">Territories</span>
+          </h2>
+          <p className="body-text reveal reveal-delay-2" style={{ maxWidth: "600px", margin: "20px auto 0", fontSize: "15px" }}>
+            We operate under exclusive federal special-use permits and private leases across Colorado's premier big game corridors. Select a unit below to analyze our access.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch reveal reveal-delay-3">
+          {/* Sidebar selector */}
+          <div className="lg:col-span-4 flex flex-col gap-4">
+            {TERRITORIES.map((t) => (
+              <button
+                key={t.id}
+                onClick={() => setActiveTerritoryId(t.id)}
+                className={`glass-card-hover text-left`}
+                style={{
+                  padding: "24px",
+                  cursor: "pointer",
+                  width: "100%",
+                  border: activeTerritoryId === t.id ? "1px solid #c9a84c" : "1px solid rgba(201, 168, 76, 0.15)",
+                  background: activeTerritoryId === t.id ? "rgba(201, 168, 76, 0.08)" : "rgba(255, 255, 255, 0.01)",
+                  transition: "all 0.3s ease"
+                }}
+              >
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "8px" }}>
+                  <span style={{ fontFamily: "Cinzel, serif", fontSize: "14px", fontWeight: "600", color: activeTerritoryId === t.id ? "#c9a84c" : "#f4f0e8", letterSpacing: "0.1em" }}>
+                    {t.name}
+                  </span>
+                  <span style={{ fontFamily: "Inter, sans-serif", fontSize: "10px", color: "rgba(201, 168, 76, 0.6)", textTransform: "uppercase", letterSpacing: "0.05em" }}>
+                    {t.id === "units_s56_s62" ? "Sheep Draw" : t.id === "units41_421" ? "OTC / Draw" : "Draw Only"}
+                  </span>
+                </div>
+                <div style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "1.1rem", fontStyle: "italic", color: activeTerritoryId === t.id ? "#e0c278" : "rgba(244, 240, 232, 0.65)" }}>
+                  {t.subtitle}
+                </div>
+              </button>
+            ))}
+            
+            {/* Tactical overlay coordinates card */}
+            <div className="glass-card hidden lg:block" style={{ padding: "24px", marginTop: "12px", border: "1px solid rgba(201,168,76,0.12)" }}>
+              <div style={{ fontFamily: "Cinzel, serif", fontSize: "8px", letterSpacing: "0.2em", color: "#c9a84c", textTransform: "uppercase", marginBottom: "12px" }}>
+                🛰️ Telemetry Coordinates
+              </div>
+              <div style={{ display: "flex", flexDirection: "column", gap: "8px", fontFamily: "monospace", fontSize: "11px", color: "rgba(244, 240, 232, 0.6)" }}>
+                <div>LOC: MESA/DELTA CO, CO</div>
+                <div>DATUM: WGS84</div>
+                <div>GRID: 12S EH 3412 1894</div>
+                <div>USFS REGION: #2 (GMUG)</div>
+                <div>PERMIT STATUS: ACTIVE / SECURED</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Details pane */}
+          <div className="lg:col-span-8 glass-card" style={{ padding: "40px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+            <div>
+              {/* Header */}
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "28px", flexWrap: "wrap", gap: "16px" }}>
+                <div>
+                  <h3 style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "2rem", fontWeight: 300, color: "#f4f0e8", margin: 0 }}>
+                    {activeTerritory.name} <span className="gold-italic">{activeTerritory.subtitle}</span>
+                  </h3>
+                  <p style={{ fontFamily: "Cinzel, serif", fontSize: "10px", letterSpacing: "0.2em", color: "#c9a84c", textTransform: "uppercase", marginTop: "6px", margin: "6px 0 0" }}>
+                    {activeTerritory.acres}
+                  </p>
+                </div>
+                <div style={{ background: "rgba(201, 168, 76, 0.08)", border: "1px solid rgba(201, 168, 76, 0.3)", padding: "8px 16px" }}>
+                  <span style={{ fontFamily: "Cinzel, serif", fontSize: "10px", color: "#c9a84c", letterSpacing: "0.15em", textTransform: "uppercase" }}>
+                    {activeTerritory.tagType}
+                  </span>
+                </div>
+              </div>
+
+              <div style={{ height: "1px", background: "rgba(201, 168, 76, 0.15)", marginBottom: "28px" }} />
+
+              {/* Description */}
+              <p className="body-text" style={{ marginBottom: "32px", fontSize: "14.5px" }}>
+                {activeTerritory.description}
+              </p>
+
+              {/* Specifications grid */}
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "24px", marginBottom: "32px" }}>
+                <div>
+                  <div style={{ fontFamily: "Cinzel, serif", fontSize: "8.5px", letterSpacing: "0.2em", color: "rgba(201,168,76,0.6)", textTransform: "uppercase", marginBottom: "6px" }}>
+                    Elevations
+                  </div>
+                  <div style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "1.3rem", color: "#f4f0e8" }}>
+                    {activeTerritory.elevation}
+                  </div>
+                </div>
+                <div>
+                  <div style={{ fontFamily: "Cinzel, serif", fontSize: "8.5px", letterSpacing: "0.2em", color: "rgba(201,168,76,0.6)", textTransform: "uppercase", marginBottom: "6px" }}>
+                    Target Game
+                  </div>
+                  <div style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "1.3rem", color: "#f4f0e8" }}>
+                    {activeTerritory.species}
+                  </div>
+                </div>
+                <div>
+                  <div style={{ fontFamily: "Cinzel, serif", fontSize: "8.5px", letterSpacing: "0.2em", color: "rgba(201,168,76,0.6)", textTransform: "uppercase", marginBottom: "6px" }}>
+                    Terrain Difficulty
+                  </div>
+                  <div style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "1.3rem", color: "#f4f0e8" }}>
+                    {activeTerritory.difficulty}
+                  </div>
+                </div>
+                <div>
+                  <div style={{ fontFamily: "Cinzel, serif", fontSize: "8.5px", letterSpacing: "0.2em", color: "rgba(201,168,76,0.6)", textTransform: "uppercase", marginBottom: "6px" }}>
+                    Total Footprint
+                  </div>
+                  <div style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "1.3rem", color: "#f4f0e8" }}>
+                    {activeTerritory.area}
+                  </div>
+                </div>
+              </div>
+
+              {/* Boundaries Section */}
+              <div style={{ background: "rgba(255, 255, 255, 0.01)", border: "1px solid rgba(201, 168, 76, 0.1)", padding: "24px", borderRadius: "1px" }}>
+                <p style={{ fontFamily: "Cinzel, serif", fontSize: "10px", letterSpacing: "0.2em", color: "#c9a84c", textTransform: "uppercase", margin: "0 0 16px 0", fontWeight: "600" }}>
+                  🗺️ Territory Boundaries
+                </p>
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }} className="max-sm:grid-cols-1">
+                  {Object.entries(activeTerritory.boundaries).map(([dir, boundary]) => (
+                    <div key={dir} style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                      <div style={{ width: "24px", height: "24px", border: "1px solid rgba(201, 168, 76, 0.25)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "Cinzel, serif", fontSize: "9px", color: "#c9a84c", textTransform: "uppercase", flexShrink: 0 }}>
+                        {dir[0]}
+                      </div>
+                      <span style={{ fontFamily: "Inter, sans-serif", fontSize: "12.5px", color: "rgba(244, 240, 232, 0.85)" }}>
+                        {boundary}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div style={{ display: "flex", gap: "16px", marginTop: "32px", flexWrap: "wrap" }}>
+              <button
+                onClick={() => setIsPlannerOpen(true)}
+                className="btn-gold"
+                style={{ cursor: "pointer" }}
+              >
+                <span>Plan Expedition in {activeTerritory.name}</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── RIVER ACCESS FULL PHOTO ─────────────────────────────── */}
       <section className="full-photo-section">
         <img src="/photos/jetboat_river_access.png" alt="Jetboat navigating Colorado river canyon" loading="lazy" />
@@ -420,7 +610,7 @@ export default function App() {
       {/* ── EXPEDITIONS ────────────────────────────────────────── */}
       <section id="expeditions" style={{ padding: "120px 48px", maxWidth: "1400px", margin: "0 auto" }}>
         <div style={{ textAlign: "center", marginBottom: "60px" }}>
-          <p className="section-label reveal" style={{ marginBottom: "20px" }}>Bespoke Campaigns</p>
+          <p className="section-label reveal" style={{ marginBottom: "20px" }}>Trophy Campaigns</p>
           <h2 className="headline-lg reveal reveal-delay-1">
             Featured <span className="gold-italic">Expeditions</span>
           </h2>
@@ -605,7 +795,7 @@ export default function App() {
                 <span>Plan Your Expedition</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
-              <a href="tel:9705550190" className="btn-outline">
+              <a href="tel:9706231834" className="btn-outline">
                 <Phone className="w-3.5 h-3.5" />
                 <span>Call Direct</span>
               </a>
@@ -646,7 +836,7 @@ export default function App() {
           <div>
             <p className="section-label reveal" style={{ marginBottom: "20px" }}>Begin Your Expedition</p>
             <h2 className="headline-lg reveal reveal-delay-1" style={{ marginBottom: "24px" }}>
-              Request Your<br /><span className="gold-italic">Bespoke Brief</span>
+              Request Your<br /><span className="gold-italic">Custom Brief</span>
             </h2>
             <p className="body-text reveal reveal-delay-2" style={{ marginBottom: "40px" }}>
               Every GuideWest expedition is hand-crafted around your target animal, available dates, and personal goals. Submit your inquiry and Jason will personally respond within 24 hours.
@@ -654,8 +844,8 @@ export default function App() {
 
             <div style={{ display: "flex", flexDirection: "column", gap: "20px" }} className="reveal reveal-delay-3">
               {[
-                { icon: <Phone className="w-4 h-4" />, label: "Direct Line", value: "(970) 555-0190", href: "tel:9705550190" },
-                { icon: <Mail className="w-4 h-4" />, label: "Email", value: "jason@guidewestoutfitters.com", href: "mailto:jason@guidewestoutfitters.com" },
+                { icon: <Phone className="w-4 h-4" />, label: "Direct Line", value: "(970) 623-1834", href: "tel:9706231834" },
+                { icon: <Mail className="w-4 h-4" />, label: "Email", value: "guide@3outfitterswest.com", href: "mailto:guide@3outfitterswest.com" },
                 { icon: <MapPin className="w-4 h-4" />, label: "Headquarters", value: "Grand Junction, Colorado", href: null },
               ].map((contact, i) => (
                 <div key={i} className="glass-card" style={{ padding: "20px 24px", display: "flex", alignItems: "center", gap: "16px" }}>
@@ -720,15 +910,21 @@ export default function App() {
               </p>
             </div>
 
-            {/* Expeditions */}
+            {/* Navigation */}
             <div>
               <p style={{ fontFamily: "Cinzel, serif", fontSize: "9px", letterSpacing: "0.25em", color: "#c9a84c", textTransform: "uppercase", marginBottom: "20px" }}>
-                Expeditions
+                Navigation
               </p>
-              {["Unit 40 Trophy Elk & Deer", "Desert Bighorn Sheep", "Gunnison River Float Hunts", "Request Custom Expedition"].map((item, i) => (
-                <a key={i} href="#expeditions" style={{ display: "block", fontFamily: "Inter, sans-serif", fontSize: "13px", color: "rgba(244,240,232,0.65)", textDecoration: "none", marginBottom: "10px", transition: "color 0.3s" }}
+              {[
+                { label: "The Advantage", href: "#advantage" },
+                { label: "Where We Hunt", href: "#where-we-hunt" },
+                { label: "Expeditions", href: "#expeditions" },
+                { label: "The Outfitter", href: "#outfitter" },
+                { label: "Inquire", href: "#contact" }
+              ].map((item, i) => (
+                <a key={i} href={item.href} style={{ display: "block", fontFamily: "Inter, sans-serif", fontSize: "13px", color: "rgba(244,240,232,0.65)", textDecoration: "none", marginBottom: "10px", transition: "color 0.3s" }}
                   onMouseEnter={e => (e.currentTarget.style.color = "#c9a84c")}
-                  onMouseLeave={e => (e.currentTarget.style.color = "rgba(244,240,232,0.65)")}>{item}</a>
+                  onMouseLeave={e => (e.currentTarget.style.color = "rgba(244,240,232,0.65)")}>{item.label}</a>
               ))}
             </div>
 
@@ -754,8 +950,8 @@ export default function App() {
               <p className="body-text" style={{ fontSize: "12px", lineHeight: "1.9" }}>
                 Grand Junction, Colorado<br />
                 Basecamp: Gunnison Red Gorges<br /><br />
-                <a href="tel:9705550190" style={{ color: "rgba(244,240,232,0.65)", textDecoration: "none" }}>(970) 555-0190</a><br />
-                <a href="mailto:jason@guidewestoutfitters.com" style={{ color: "rgba(244,240,232,0.65)", textDecoration: "none" }}>jason@guidewestoutfitters.com</a>
+                <a href="tel:9706231834" style={{ color: "rgba(244,240,232,0.65)", textDecoration: "none" }}>(970) 623-1834</a><br />
+                <a href="mailto:guide@3outfitterswest.com" style={{ color: "rgba(244,240,232,0.65)", textDecoration: "none" }}>guide@3outfitterswest.com</a>
               </p>
             </div>
           </div>

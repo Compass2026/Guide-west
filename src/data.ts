@@ -44,7 +44,7 @@ export const BRAND_TRANSITION: BrandTransitionInfo = {
   oldName: "3Outfitters West",
   newName: "GuideWest Outfitters",
   transitionStatement: "A legacy redefined. Formerly operating as 3Outfitters West, GuideWest Outfitters represents our elevated commitment to delivering Colorado's most exclusive, meticulously planned, and high-success trophy expeditions.",
-  marketingContext: "Thomas & Compass Marketing: Emphasize the new name 'GuideWest Outfitters' as the premium symbol of remote access and master-class guiding. The transition is presented as a structural evolution of excellence, reassuring heritage clients of the same veteran leadership (Jason McMillan) while signaling a higher tier of bespoke luxury for new clientele."
+  marketingContext: "Thomas & Compass Marketing: Emphasize the new name 'GuideWest Outfitters' as the premium symbol of remote access and master-class guiding. The transition is presented as a structural evolution of excellence, reassuring heritage clients of the same veteran leadership (Jason McMillan) while signaling a higher tier of premium service for new clientele."
 };
 
 export const ADVANTAGES: AdvantageCard[] = {

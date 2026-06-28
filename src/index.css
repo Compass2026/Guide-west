@@ -200,6 +200,26 @@ body {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
+.nav-logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+.nav-logo-link:hover {
+  transform: scale(1.02);
+}
+.nav-logo-img {
+  height: 92px;
+  width: auto;
+  object-fit: contain;
+  filter: invert(1) sepia(0.35) saturate(2) brightness(1.25);
+  transition: height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.site-nav.scrolled .nav-logo-img {
+  height: 64px;
+}
+
 .nav-link {
   font-family: "Cinzel", serif;
   font-size: 11px;
@@ -528,6 +548,12 @@ body {
   .site-nav { padding: 20px 24px; }
   .site-nav.scrolled { padding: 14px 24px; }
   .nav-links { display: none; }
+  .nav-logo-img {
+    height: 70px;
+  }
+  .site-nav.scrolled .nav-logo-img {
+    height: 52px;
+  }
   .hero-parallax {
     height: auto;
     min-height: 100svh;

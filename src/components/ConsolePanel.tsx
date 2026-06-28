@@ -313,7 +313,7 @@ export default function ConsolePanel({ onHighlightSection, highlightedSection }:
           Interactive Map & Layout Highlight
         </h4>
         <p className="text-[11px] text-[#e0e0d6] leading-relaxed font-sans">
-          Click any element on the live preview screen or use the navigation headers. Sections highlighted in the console can correspond to matching sections on the website mockup. Enter parameters in the "Bespoke Consult Form" at the bottom to generate customized proposal copy!
+          Click any element on the live preview screen or use the navigation headers. Sections highlighted in the console can correspond to matching sections on the website mockup. Enter parameters in the "Expedition Consult Form" at the bottom to generate customized proposal copy!
         </p>
       </div>
     </div>

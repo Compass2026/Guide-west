@@ -62,7 +62,7 @@ export default function HuntPlanner({ onSubmitInquiry }: HuntPlannerProps) {
 
       const draftedLetter = `Dear ${formData.fullname || "Honored Client"},
 
-Thank you for initiating this bespoke expedition brief with GuideWest Outfitters. 
+Thank you for initiating this custom expedition brief with GuideWest Outfitters. 
 
 Based on your profile, we have formulated a tactical blueprint for your upcoming Colorado ${formData.species} expedition. 
 
@@ -78,8 +78,8 @@ We operate with strict client volume controls (maximum 12 hunters annually acros
 To validate your candidacy and secure the appropriate permits, landowner vouchers, or river transport blocks, your next step is a direct consultation.
 
 I have reserved a consultation block for you. Please contact me directly at your earliest convenience:
-Direct Line: (970) 555-0190
-Email: jason@guidewestoutfitters.com
+Direct Line: (970) 623-1834
+Email: guide@3outfitterswest.com
 Office: Grand Junction, Colorado
 
 Sincerely,
@@ -106,7 +106,7 @@ DOLA License #3539 | CPW River License #659`;
         <div className="text-center space-y-2">
           <span className="font-mono text-xs text-[#c9a84c] tracking-widest uppercase flex items-center justify-center gap-1.5 font-bold">
             <Sparkles className="w-4 h-4 text-[#c9a84c]" />
-            Bespoke Expedition Brief
+            Custom Expedition Brief
           </span>
           <h3 className="font-display text-2xl lg:text-3xl text-white tracking-wide uppercase font-bold">
             Inquire About Seasonal Availability
@@ -491,7 +491,7 @@ DOLA License #3539 | CPW River License #659`;
                   Edit Brief Options
                 </button>
                 <a
-                  href="tel:9705550190"
+                  href="tel:9706231834"
                   className="bg-[#c9a84c] hover:bg-[#e0c278] text-[#0a0a0b] font-bold uppercase tracking-[0.2em] text-[10px] px-4 py-2.5 rounded-sm transition-all flex items-center gap-1.5 cursor-pointer"
                 >
                   <Phone className="w-3.5 h-3.5" /> Direct Connect
