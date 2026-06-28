@@ -220,6 +220,138 @@ body {
   height: 64px;
 }
 
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: #f4f0e8;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 110;
+  transition: color 0.3s ease;
+  align-items: center;
+  justify-content: center;
+}
+.mobile-menu-btn:hover {
+  color: #c9a84c;
+}
+
+/* Mobile Nav Drawer Overlay */
+.mobile-nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(10, 10, 11, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 105;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.mobile-nav-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.mobile-nav-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  width: 80%;
+  max-width: 320px;
+  transform: translateY(20px);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.mobile-nav-overlay.open .mobile-nav-content {
+  transform: translateY(0);
+}
+.mobile-nav-link {
+  font-family: "Cinzel", serif;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #f4f0e8;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  padding: 8px 0;
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid rgba(201, 168, 76, 0.1);
+}
+.mobile-nav-link:hover {
+  color: #c9a84c;
+}
+
+/* Hero Badge */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(201,168,76,0.3);
+  background: rgba(201,168,76,0.08);
+  padding: 8px 16px;
+  margin-bottom: 28px;
+  animation: fadeIn 1.5s 0.4s both;
+}
+.hero-badge-text {
+  font-family: "Cinzel", serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  color: #e0c278;
+  text-transform: uppercase;
+}
+
+/* Hero stats row */
+.hero-stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 1px solid rgba(201, 168, 76, 0.25);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.25);
+  padding: 24px 0;
+  margin-bottom: 40px;
+}
+.hero-stat-col {
+  text-align: center;
+  padding: 0 24px;
+}
+.hero-stat-col:not(:last-child) {
+  border-right: 1px solid rgba(201, 168, 76, 0.18);
+}
+.hero-stat-value {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.6rem;
+  font-weight: 300;
+  color: #c9a84c;
+  line-height: 1;
+}
+.hero-stat-label {
+  font-family: "Cinzel", serif;
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  color: rgba(244, 240, 232, 0.75);
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+
 .nav-link {
   font-family: "Cinzel", serif;
   font-size: 11px;
@@ -393,6 +525,7 @@ body {
   line-height: 1.05;
   letter-spacing: -0.01em;
   color: #f4f0e8;
+  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.65);
 }
 .headline-lg {
   font-family: "Cormorant Garamond", Georgia, serif;
@@ -554,6 +687,9 @@ body {
   .site-nav.scrolled .nav-logo-img {
     height: 52px;
   }
+  .mobile-menu-btn {
+    display: flex;
+  }
   .hero-parallax {
     height: auto;
     min-height: 100svh;
@@ -561,8 +697,40 @@ body {
     padding-top: 120px;
     padding-bottom: 40px;
   }
+  .hero-overlay {
+    background:
+      linear-gradient(to top, rgba(10, 10, 11, 0.95) 0%, rgba(10, 10, 11, 0.65) 45%, rgba(10, 10, 11, 0.2) 100%);
+  }
   .hero-content {
     padding: 0 20px;
+  }
+  .hero-badge-text {
+    font-size: 9px;
+    letter-spacing: 0.18em;
+  }
+  .hero-badge {
+    padding: 6px 12px;
+    margin-bottom: 20px;
+  }
+  .hero-stats-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 12px 0;
+    margin-bottom: 28px;
+  }
+  .hero-stat-col {
+    padding: 12px 0;
+  }
+  .hero-stat-col:not(:last-child) {
+    border-right: none;
+    border-bottom: 1px solid rgba(201, 168, 76, 0.12);
+  }
+  .hero-stat-value {
+    font-size: 2.2rem;
+  }
+  .hero-stat-label {
+    font-size: 10px;
+    margin-top: 4px;
   }
   .mobile-sticky-cta {
     display: flex !important;

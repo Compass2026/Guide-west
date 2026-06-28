@@ -17,6 +17,7 @@ import {
   Calendar,
   ChevronRight,
   X,
+  Menu,
 } from "lucide-react";
 import HuntPlanner from "./components/HuntPlanner";
 
@@ -228,6 +229,7 @@ export default function App() {
   const [activeHuntId, setActiveHuntId] = useState("elk");
   const [activeTerritoryId, setActiveTerritoryId] = useState("unit40");
   const [isPlannerOpen, setIsPlannerOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const scrolled = useNavScroll();
   const activeHunt = HUNTS.find((h) => h.id === activeHuntId)!;
   const activeTerritory = TERRITORIES.find((t) => t.id === activeTerritoryId)!;
@@ -239,7 +241,7 @@ export default function App() {
 
       {/* ── NAVIGATION ─────────────────────────────────────────── */}
       <nav className={`site-nav ${scrolled ? "scrolled" : ""}`} id="top-nav">
-        <a href="#hero" className="nav-logo-link">
+        <a href="#hero" className="nav-logo-link" onClick={() => setIsMobileMenuOpen(false)}>
           <img 
             src="/photos/GuideWest Outfitters.webp" 
             alt="GuideWest Outfitters Logo" 
@@ -247,7 +249,8 @@ export default function App() {
           />
         </a>
 
-        <div className="nav-links" style={{ display: "flex", alignItems: "center", gap: "40px" }}>
+        {/* Desktop Nav Links */}
+        <div className="nav-links">
           {["The Advantage", "Where We Hunt", "Expeditions", "The Outfitter", "Contact"].map((label) => {
             const hrefs = ["#advantage", "#where-we-hunt", "#expeditions", "#outfitter", "#contact"];
             const idx = ["The Advantage", "Where We Hunt", "Expeditions", "The Outfitter", "Contact"].indexOf(label);
@@ -260,6 +263,45 @@ export default function App() {
           <button onClick={() => setIsPlannerOpen(true)} className="btn-gold" style={{ padding: "12px 28px", cursor: "pointer" }}>
             <span>Inquire</span>
           </button>
+        </div>
+
+        {/* Hamburger Menu Button for Mobile */}
+        <button 
+          className="mobile-menu-btn" 
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle Menu"
+        >
+          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+
+        {/* Mobile Navigation Drawer Overlay */}
+        <div className={`mobile-nav-overlay ${isMobileMenuOpen ? "open" : ""}`}>
+          <div className="mobile-nav-content">
+            {["The Advantage", "Where We Hunt", "Expeditions", "The Outfitter", "Contact"].map((label) => {
+              const hrefs = ["#advantage", "#where-we-hunt", "#expeditions", "#outfitter", "#contact"];
+              const idx = ["The Advantage", "Where We Hunt", "Expeditions", "The Outfitter", "Contact"].indexOf(label);
+              return (
+                <a 
+                  key={label} 
+                  href={hrefs[idx]} 
+                  className="mobile-nav-link"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {label}
+                </a>
+              );
+            })}
+            <button 
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                setIsPlannerOpen(true);
+              }} 
+              className="btn-gold" 
+              style={{ width: "100%", padding: "16px", marginTop: "24px" }}
+            >
+              <span>Inquire Now</span>
+            </button>
+          </div>
         </div>
       </nav>
 
@@ -277,14 +319,9 @@ export default function App() {
         {/* Hero Content */}
         <div className="hero-content" style={{ position: "relative", zIndex: 10, width: "100%", maxWidth: "1400px", margin: "0 auto" }}>
           <div style={{ maxWidth: "720px" }}>
-            <div style={{
-              display: "inline-flex", alignItems: "center", gap: "8px",
-              border: "1px solid rgba(201,168,76,0.3)", background: "rgba(201,168,76,0.08)",
-              padding: "8px 16px", marginBottom: "28px",
-              animation: "fadeIn 1.5s 0.4s both"
-            }}>
+            <div className="hero-badge">
               <Mountain className="w-3.5 h-3.5" style={{ color: "#e0c278" }} />
-              <span style={{ fontFamily: "Cinzel, serif", fontSize: "11px", fontWeight: "600", letterSpacing: "0.3em", color: "#e0c278", textTransform: "uppercase" }}>
+              <span className="hero-badge-text">
                 GMU 40 Elite Permitted Outfitter · Since 2001
               </span>
             </div>
@@ -299,7 +336,7 @@ export default function App() {
             </p>
 
             {/* Metrics Row */}
-            <div className="grid grid-cols-3 gap-0 border-t border-b border-[rgba(201,168,76,0.25)] py-6 mb-10" style={{
+            <div className="hero-stats-row" style={{
               animation: "fadeUp 1.4s 1s cubic-bezier(0.16,1,0.3,1) both"
             }}>
               {[
@@ -307,14 +344,11 @@ export default function App() {
                 { value: "100%", label: "Bighorn Success" },
                 { value: "325K", label: "Permitted Acres" },
               ].map((stat, i) => (
-                <div key={i} style={{
-                  textAlign: "center", padding: "0 24px",
-                  borderRight: i < 2 ? "1px solid rgba(201,168,76,0.18)" : "none"
-                }}>
-                  <div style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "2.6rem", fontWeight: 300, color: "#c9a84c", lineHeight: 1 }}>
+                <div key={i} className="hero-stat-col">
+                  <div className="hero-stat-value">
                     {stat.value}
                   </div>
-                  <div style={{ fontFamily: "Cinzel, serif", fontSize: "10.5px", fontWeight: "500", letterSpacing: "0.25em", color: "rgba(244,240,232,0.75)", textTransform: "uppercase", marginTop: "8px" }}>
+                  <div className="hero-stat-label">
                     {stat.label}
                   </div>
                 </div>
