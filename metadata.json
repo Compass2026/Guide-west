@@ -1,0 +1,6 @@
+{
+  "name": "GuideWest Outfitters",
+  "description": "High-end cinematic single-page website and brand transition blueprint for GuideWest Outfitters, specializing in premium big game hunting in Western Colorado.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
