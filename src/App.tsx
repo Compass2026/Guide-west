@@ -122,7 +122,7 @@ const HUNTS = [
     vouchers: true,
     terrain: "Deep River Gorges, BLM Islands & Cottonwood Bottoms",
     description:
-      "As late-season snows push trophy bulls and deer down from the Grand Mesa, they concentrate in mild vertical canyons along the Gunnison and Colorado river corridors. While other hunters face impassable mountain roads, we deploy on the water — placing clients directly inside high-success zones surrounded by scenery that takes your breath away.",
+      "As late-season snows push trophy bulls and heavy deer down from the Grand Mesa, they concentrate in mild, vertical canyons along the Gunnison and Colorado river corridors. While other hunters face impassable mountain roads, we deploy by water — placing clients inside high-success zones surrounded by pristine canyon walls.",
     highlights: [
       "Navigate inaccessible river canyons by commercial raft",
       "Heated mobile riverbed wall tents with generator power",
@@ -237,7 +237,7 @@ function ContactForm() {
         <span>Submit Expedition Inquiry</span>
         <ArrowRight className="w-4 h-4" />
       </button>
-      <p className="text-center text-xs text-[rgba(244,240,232,0.35)] tracking-wider">
+      <p className="text-center text-xs text-[rgba(244,240,232,0.6)] tracking-wider">
         Jason McMillan personally responds to every inquiry within 24 hours.
       </p>
     </form>
@@ -306,7 +306,7 @@ export default function App() {
         <div className="hero-overlay" />
 
         {/* Hero Content */}
-        <div style={{ position: "relative", zIndex: 10, width: "100%", maxWidth: "1400px", margin: "0 auto", padding: "0 48px 80px" }}>
+        <div className="hero-content" style={{ position: "relative", zIndex: 10, width: "100%", maxWidth: "1400px", margin: "0 auto" }}>
           <div style={{ maxWidth: "720px" }}>
             <div style={{
               display: "inline-flex", alignItems: "center", gap: "8px",
@@ -314,19 +314,19 @@ export default function App() {
               padding: "8px 16px", marginBottom: "28px",
               animation: "fadeIn 1.5s 0.4s both"
             }}>
-              <Mountain className="w-3.5 h-3.5" style={{ color: "#c9a84c" }} />
-              <span style={{ fontFamily: "Cinzel, serif", fontSize: "9px", letterSpacing: "0.3em", color: "#c9a84c", textTransform: "uppercase" }}>
+              <Mountain className="w-3.5 h-3.5" style={{ color: "#e0c278" }} />
+              <span style={{ fontFamily: "Cinzel, serif", fontSize: "11px", fontWeight: "600", letterSpacing: "0.3em", color: "#e0c278", textTransform: "uppercase" }}>
                 GMU 40 Elite Permitted Outfitter · Since 2001
               </span>
             </div>
 
             <h1 className="headline-xl" style={{ marginBottom: "24px", animation: "fadeUp 1.4s 0.6s cubic-bezier(0.16,1,0.3,1) both" }}>
               Your Trophy<br />
-              <span className="gold-italic">Is Down There.</span>
+              <span className="gold-italic">Awaits in the Canyons.</span>
             </h1>
 
-            <p className="body-text" style={{ fontSize: "17px", maxWidth: "540px", marginBottom: "40px", animation: "fadeUp 1.4s 0.8s cubic-bezier(0.16,1,0.3,1) both" }}>
-              We put you on the ridge at first light — glassing roadless canyon country no other outfitter can reach. Western Colorado's most restricted trophy corridors. Exclusive river access. 100% bighorn success rate.
+            <p className="body-text" style={{ fontSize: "17px", maxWidth: "560px", marginBottom: "40px", animation: "fadeUp 1.4s 0.8s cubic-bezier(0.16,1,0.3,1) both", color: "#f4f0e8" }}>
+              At first light, we position you on the rim of roadless canyon systems that other crews cannot reach. Gain exclusive, permit-backed river entry to Western Colorado's most restricted game corridors and experience our historic bighorn success.
             </p>
 
             {/* Metrics Row */}
@@ -345,7 +345,7 @@ export default function App() {
                   <div style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "2.6rem", fontWeight: 300, color: "#c9a84c", lineHeight: 1 }}>
                     {stat.value}
                   </div>
-                  <div style={{ fontFamily: "Cinzel, serif", fontSize: "9px", letterSpacing: "0.25em", color: "rgba(244,240,232,0.5)", textTransform: "uppercase", marginTop: "8px" }}>
+                  <div style={{ fontFamily: "Cinzel, serif", fontSize: "10.5px", fontWeight: "500", letterSpacing: "0.25em", color: "rgba(244,240,232,0.75)", textTransform: "uppercase", marginTop: "8px" }}>
                     {stat.label}
                   </div>
                 </div>
@@ -365,8 +365,8 @@ export default function App() {
 
             {/* License badge */}
             <div style={{ marginTop: "24px", display: "flex", alignItems: "center", gap: "8px", animation: "fadeIn 1.5s 0.7s both" }}>
-              <Shield className="w-3.5 h-3.5" style={{ color: "rgba(201,168,76,0.5)" }} />
-              <span style={{ fontFamily: "Cinzel, serif", fontSize: "9px", letterSpacing: "0.2em", color: "rgba(244,240,232,0.3)", textTransform: "uppercase" }}>
+              <Shield className="w-3.5 h-3.5" style={{ color: "rgba(201,168,76,0.65)" }} />
+              <span style={{ fontFamily: "Cinzel, serif", fontSize: "10px", fontWeight: "500", letterSpacing: "0.2em", color: "rgba(244,240,232,0.6)", textTransform: "uppercase" }}>
                 CPW River Outfitter #659 · Colorado DOLA Outfitter License #3539
               </span>
             </div>
@@ -380,7 +380,7 @@ export default function App() {
           animation: "fadeIn 2s 1.2s both",
           zIndex: 10,
         }}>
-          <span style={{ fontFamily: "Cinzel, serif", fontSize: "8px", letterSpacing: "0.3em", color: "rgba(244,240,232,0.4)", textTransform: "uppercase" }}>
+          <span style={{ fontFamily: "Cinzel, serif", fontSize: "10px", fontWeight: "500", letterSpacing: "0.3em", color: "rgba(244,240,232,0.7)", textTransform: "uppercase" }}>
             Scroll
           </span>
           <ChevronDown className="w-4 h-4" style={{ color: "rgba(201,168,76,0.6)", animation: "fadeUp 1s 0s infinite alternate" }} />
@@ -528,11 +528,11 @@ export default function App() {
               <div>
                 <h3 className="headline-md" style={{ marginBottom: "12px" }}>{activeHunt.title}</h3>
                 <div style={{ display: "flex", alignItems: "center", gap: "16px", flexWrap: "wrap" }}>
-                  <span style={{ display: "flex", alignItems: "center", gap: "6px", fontFamily: "Inter, sans-serif", fontSize: "12px", color: "rgba(244,240,232,0.5)" }}>
+                  <span style={{ display: "flex", alignItems: "center", gap: "6px", fontFamily: "Inter, sans-serif", fontSize: "12px", color: "rgba(244,240,232,0.75)" }}>
                     <Calendar className="w-3.5 h-3.5" style={{ color: "#c9a84c" }} />
                     {activeHunt.duration}
                   </span>
-                  <span style={{ display: "flex", alignItems: "center", gap: "6px", fontFamily: "Inter, sans-serif", fontSize: "12px", color: "rgba(244,240,232,0.5)" }}>
+                  <span style={{ display: "flex", alignItems: "center", gap: "6px", fontFamily: "Inter, sans-serif", fontSize: "12px", color: "rgba(244,240,232,0.75)" }}>
                     <MapPin className="w-3.5 h-3.5" style={{ color: "#c9a84c" }} />
                     {activeHunt.terrain}
                   </span>
@@ -551,14 +551,14 @@ export default function App() {
             <p className="body-text" style={{ marginBottom: "28px" }}>{activeHunt.description}</p>
 
             <div style={{ marginBottom: "32px" }}>
-              <p style={{ fontFamily: "Cinzel, serif", fontSize: "9px", letterSpacing: "0.25em", color: "rgba(244,240,232,0.4)", textTransform: "uppercase", marginBottom: "16px" }}>
+              <p style={{ fontFamily: "Cinzel, serif", fontSize: "10.5px", fontWeight: "500", letterSpacing: "0.25em", color: "rgba(244,240,232,0.65)", textTransform: "uppercase", marginBottom: "16px" }}>
                 Included Tactical Assets
               </p>
               <ul style={{ listStyle: "none", margin: 0, padding: 0, display: "grid", gap: "10px" }}>
                 {activeHunt.highlights.map((item, i) => (
                   <li key={i} style={{ display: "flex", alignItems: "flex-start", gap: "10px" }}>
                     <Check className="w-4 h-4" style={{ color: "#c9a84c", flexShrink: 0, marginTop: "1px" }} />
-                    <span style={{ fontFamily: "Inter, sans-serif", fontSize: "13px", fontWeight: 300, color: "rgba(244,240,232,0.65)", lineHeight: "1.6" }}>
+                    <span style={{ fontFamily: "Inter, sans-serif", fontSize: "13px", fontWeight: 400, color: "rgba(244,240,232,0.85)", lineHeight: "1.6" }}>
                       {item}
                     </span>
                   </li>
@@ -623,7 +623,7 @@ export default function App() {
                 { label: "USFS/BLM SUP", num: "Active" },
               ].map((lic, i) => (
                 <div key={i} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "6px 0", borderBottom: i < 2 ? "1px solid rgba(201,168,76,0.1)" : "none" }}>
-                  <span style={{ fontFamily: "Inter, sans-serif", fontSize: "11px", color: "rgba(244,240,232,0.5)" }}>{lic.label}</span>
+                  <span style={{ fontFamily: "Inter, sans-serif", fontSize: "11px", color: "rgba(244,240,232,0.75)" }}>{lic.label}</span>
                   <span style={{ fontFamily: "Cinzel, serif", fontSize: "11px", color: "#c9a84c", letterSpacing: "0.1em" }}>{lic.num}</span>
                 </div>
               ))}
@@ -685,7 +685,7 @@ export default function App() {
                 <div className="metric-number">
                   {stat.num}<span style={{ fontSize: "1.6rem", color: "rgba(201,168,76,0.6)" }}>{stat.unit}</span>
                 </div>
-                <div style={{ fontFamily: "Cinzel, serif", fontSize: "9px", letterSpacing: "0.25em", color: "rgba(244,240,232,0.4)", textTransform: "uppercase", marginTop: "8px" }}>
+                <div style={{ fontFamily: "Cinzel, serif", fontSize: "10.5px", fontWeight: "500", letterSpacing: "0.25em", color: "rgba(244,240,232,0.65)", textTransform: "uppercase", marginTop: "8px" }}>
                   {stat.label}
                 </div>
               </div>
@@ -749,7 +749,7 @@ export default function App() {
 
           {/* Right: Form */}
           <div className="glass-card reveal reveal-delay-2" style={{ padding: "48px" }}>
-            <p style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "1.3rem", fontStyle: "italic", color: "rgba(244,240,232,0.6)", marginBottom: "36px", lineHeight: 1.5 }}>
+            <p style={{ fontFamily: "Cormorant Garamond, serif", fontSize: "1.3rem", fontStyle: "italic", color: "rgba(244,240,232,0.85)", marginBottom: "36px", lineHeight: 1.5 }}>
               "Jason McMillan personally reviews every expedition inquiry."
             </p>
             <ContactForm />
@@ -766,7 +766,7 @@ export default function App() {
               <div style={{ fontFamily: "Cinzel, serif", fontSize: "16px", letterSpacing: "0.2em", color: "#c9a84c", marginBottom: "8px" }}>
                 GUIDEWEST
               </div>
-              <div style={{ fontFamily: "Inter, sans-serif", fontSize: "9px", letterSpacing: "0.25em", color: "rgba(244,240,232,0.3)", textTransform: "uppercase", marginBottom: "20px" }}>
+              <div style={{ fontFamily: "Inter, sans-serif", fontSize: "10px", fontWeight: "500", letterSpacing: "0.25em", color: "rgba(244,240,232,0.55)", textTransform: "uppercase", marginBottom: "20px" }}>
                 Colorado Trophy Expeditions
               </div>
               <p className="body-text" style={{ fontSize: "12px" }}>
@@ -780,9 +780,9 @@ export default function App() {
                 Expeditions
               </p>
               {["Unit 40 Trophy Elk & Deer", "Desert Bighorn Sheep", "Gunnison River Float Hunts", "Request Custom Expedition"].map((item, i) => (
-                <a key={i} href="#expeditions" style={{ display: "block", fontFamily: "Inter, sans-serif", fontSize: "13px", color: "rgba(244,240,232,0.45)", textDecoration: "none", marginBottom: "10px", transition: "color 0.3s" }}
+                <a key={i} href="#expeditions" style={{ display: "block", fontFamily: "Inter, sans-serif", fontSize: "13px", color: "rgba(244,240,232,0.65)", textDecoration: "none", marginBottom: "10px", transition: "color 0.3s" }}
                   onMouseEnter={e => (e.currentTarget.style.color = "#c9a84c")}
-                  onMouseLeave={e => (e.currentTarget.style.color = "rgba(244,240,232,0.45)")}>{item}</a>
+                  onMouseLeave={e => (e.currentTarget.style.color = "rgba(244,240,232,0.65)")}>{item}</a>
               ))}
             </div>
 
@@ -808,8 +808,8 @@ export default function App() {
               <p className="body-text" style={{ fontSize: "12px", lineHeight: "1.9" }}>
                 Grand Junction, Colorado<br />
                 Basecamp: Gunnison Red Gorges<br /><br />
-                <a href="tel:9705550190" style={{ color: "rgba(244,240,232,0.45)", textDecoration: "none" }}>(970) 555-0190</a><br />
-                <a href="mailto:jason@guidewestoutfitters.com" style={{ color: "rgba(244,240,232,0.45)", textDecoration: "none" }}>jason@guidewestoutfitters.com</a>
+                <a href="tel:9705550190" style={{ color: "rgba(244,240,232,0.65)", textDecoration: "none" }}>(970) 555-0190</a><br />
+                <a href="mailto:jason@guidewestoutfitters.com" style={{ color: "rgba(244,240,232,0.65)", textDecoration: "none" }}>jason@guidewestoutfitters.com</a>
               </p>
             </div>
           </div>
@@ -817,7 +817,7 @@ export default function App() {
           <div style={{ height: "1px", background: "rgba(201,168,76,0.12)", marginBottom: "28px" }} />
 
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "16px" }}>
-            <p style={{ fontFamily: "Inter, sans-serif", fontSize: "11px", color: "rgba(244,240,232,0.25)" }}>
+            <p style={{ fontFamily: "Inter, sans-serif", fontSize: "11px", color: "rgba(244,240,232,0.5)" }}>
               © {new Date().getFullYear()} GuideWest Outfitters. All rights reserved. Formerly 3Outfitters West. Same veteran guides, elevated access.
             </p>
             <p style={{ fontFamily: "Cinzel, serif", fontSize: "8px", letterSpacing: "0.25em", color: "rgba(201,168,76,0.4)", textTransform: "uppercase" }}>

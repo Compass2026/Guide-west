@@ -105,8 +105,8 @@ body {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(to right, rgba(10, 10, 11, 0.75) 0%, rgba(10, 10, 11, 0.15) 65%, transparent 100%),
-    linear-gradient(to top, rgba(10, 10, 11, 1) 0%, rgba(10, 10, 11, 0.55) 25%, rgba(10, 10, 11, 0.0) 55%);
+    linear-gradient(to right, rgba(10, 10, 11, 0.85) 0%, rgba(10, 10, 11, 0.5) 45%, rgba(10, 10, 11, 0.2) 70%, transparent 100%),
+    linear-gradient(to top, rgba(10, 10, 11, 1) 0%, rgba(10, 10, 11, 0.6) 30%, rgba(10, 10, 11, 0.0) 65%);
 }
 
 /* ─── GLASSMORPHISM CARDS ───────────────────────────────────────── */
@@ -287,7 +287,7 @@ body {
   letter-spacing: 0.16em;
   text-transform: uppercase;
   padding: 17px 36px;
-  border: 1px solid rgba(244, 240, 232, 0.3);
+  border: 1px solid rgba(244, 240, 232, 0.55);
   cursor: pointer;
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   text-decoration: none;
@@ -338,9 +338,9 @@ body {
 .body-text {
   font-family: "Inter", sans-serif;
   font-size: 15px;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.8;
-  color: rgba(244, 240, 232, 0.65);
+  color: rgba(244, 240, 232, 0.88);
 }
 
 /* ─── INPUT STYLES ──────────────────────────────────────────────── */
@@ -460,10 +460,25 @@ body {
   border-top: 1px solid rgba(201, 168, 76, 0.15);
 }
 
-/* ─── MOBILE NAV ────────────────────────────────────────────────── */
+/* ─── HERO CONTENT ──────────────────────────────────────────────── */
+.hero-content {
+  padding: 0 48px 80px;
+}
+
+/* ─── MOBILE NAV & HERO ─────────────────────────────────────────── */
 @media (max-width: 768px) {
   .site-nav { padding: 20px 24px; }
   .site-nav.scrolled { padding: 14px 24px; }
   .nav-links { display: none; }
-  .hero-parallax { height: 100svh; }
+  .hero-parallax {
+    height: auto;
+    min-height: 100svh;
+    align-items: flex-end;
+    padding-top: 120px;
+    padding-bottom: 40px;
+  }
+  .hero-content {
+    padding: 0 20px;
+  }
 }
+
